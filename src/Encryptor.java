@@ -130,6 +130,29 @@ public class Encryptor
      */
     public String decryptMessage(String encryptedMessage)
     {
-        return "a";
+
+    }
+
+    public String decryptSection(String message, int start, int end)
+    {
+        String[][] arrd = new String[numRows][numCols];
+        String section = message.substring(start, end);
+        int index = section.length() - 1;
+        for (int x = arrd[0].length - 1; x >= 0; x--)
+        {
+            for (int i = arrd.length - 1; i >= 0; i--)
+            {
+                arrd[i][x] = section.substring(index, index + 1);
+                index--;
+            }
+        }
+        String decrypt = "";
+        for (int i = 0; i < arrd.length; i++)
+        {
+            for (int x = 0; x < arrd[i].length; x++)
+            {
+
+            }
+        }
     }
 }
