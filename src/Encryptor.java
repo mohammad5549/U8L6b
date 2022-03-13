@@ -147,6 +147,7 @@ public class Encryptor
         return message;
     }
 
+    //helper method
     public String decryptSection(String message, int start, int end)
     {
         String[][] arrd = new String[numRows][numCols];
