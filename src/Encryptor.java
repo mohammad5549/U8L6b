@@ -130,7 +130,21 @@ public class Encryptor
      */
     public String decryptMessage(String encryptedMessage)
     {
-
+        int sectionLen = numRows * numCols;
+        int start = 0;
+        int end = sectionLen;
+        String message = "";
+        while (end <= encryptedMessage.length())
+        {
+            message += decryptSection(encryptedMessage, start, end);
+            start += sectionLen;
+            end += sectionLen;
+        }
+        while (message.substring(message.length() - 1).equals("A"))
+        {
+            message = message.substring(0, message.length() - 1);
+        }
+        return message;
     }
 
     public String decryptSection(String message, int start, int end)
@@ -151,8 +165,9 @@ public class Encryptor
         {
             for (int x = 0; x < arrd[i].length; x++)
             {
-
+                decrypt += arrd[i][x];
             }
         }
+        return decrypt;
     }
 }
